@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../Helpers/getProducts';
+import React, { useState, useEffect } from 'react';
+import getProducts from '../Helpers/getProducts';
+import ItemCount from '../ItemCount/ItemCount';
 import ItemDetail from './ItemDetail';
 
-function ItemDetailContainer() {
-  const [prod, setProd] = useState({});
-const prodId = 2;
+const ItemDetailContainer = () => {
+  const [product, setProduct] = useState({});
+  const productId = 1;
 
-useEffect(() => {
- getProducts.then((d) => {
-      setProd(d.find((i) => i.id === prodId));
-    })
-    .catch((err) => console.log(err));
+  useEffect(() => {
+    getProducts()
+      .then((data) => {
+        setProduct(data.find((item) => item.id === productId));
+      })
+      .catch((err) => console.log(err));
   }, []);
-
- 
-  return <>
-      <ItemDetail prod={prod}/>
- 
-  </>;
-}
+  
+  return (
+    <>
+    <ItemDetail product={product} />
+    <ItemCount initial={1} stock={5} />
+    </>
+  );
+};
 
 export default ItemDetailContainer;

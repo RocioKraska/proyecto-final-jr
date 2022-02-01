@@ -1,15 +1,20 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const ItemDetail = (prod) =>{
-
- /* const { name, categoria, foto, price } = props.product;*/
+function ItemDetail(a) {
+    const { name, category, stock, price } = a.product;
   return <div>
- 
-      <h1>nombre:{prod.name}</h1>
-      <h4>Category: {prod.categoria}</h4>
-      <h4>{prod.foto}</h4>
-      <h4>Price: ${prod.price}</h4>
+<Card style={{ width: '18rem' }}>
+  <Card.Header>{name}</Card.Header>
+  <ListGroup variant="flush">
+    <ListGroup.Item>categroia:{category}</ListGroup.Item>
+    <ListGroup.Item>cantidad:{stock}</ListGroup.Item>
+    <ListGroup.Item>Precio: ${price}</ListGroup.Item>
+  </ListGroup>
+</Card>
+
   </div>;
-};
+}
 
 export default ItemDetail;
