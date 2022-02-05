@@ -1,6 +1,23 @@
 import products from "./products";
 
-const getProducts =new Promise((res, rej)  => {
+
+
+
+
+export default function getProducts(){
+
+return new Promise ((res,rej)=> {
+  setTimeout(() =>{return res (products)}, 2000)
+}
+
+
+)
+
+
+
+}
+
+/*const getProducts =new Promise((res, rej)  => {
 
   let condition = true
 
@@ -14,7 +31,7 @@ const getProducts =new Promise((res, rej)  => {
    //});
 
  });
-export default getProducts
+export default getProducts*/
 
     
 

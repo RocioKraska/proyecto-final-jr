@@ -20,13 +20,13 @@ const {idCategoria} = useParams()
 
 useEffect(() => {
 if (idCategoria){
-  getProducts
+  getProducts()
 
  .then(res=> setProducto(res.filter(prod => prod.categoria === idCategoria)))
  .catch(err => console.log(err))
  .finally(()=> setLoading (false))
 }else{
-  getProducts
+  getProducts()
 
  .then(res=> setProducto(res))
  .catch(err => console.log(err))
