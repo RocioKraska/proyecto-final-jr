@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import getProducts from '../Helpers/getProducts';
-import ItemCount from '../ItemCount/ItemCount';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
@@ -9,27 +8,25 @@ const ItemDetailContainer = () => {
   
   const {idProducto} = useParams()
    console.log(idProducto)
-  
+
+ //  const idProducto = 1 ;
   useEffect(() => {
-    if (idProducto){
-      getProducts
-    
-     .then(data=> setProduct(data.find(item => item.id === idProducto)))
-     .catch(err => console.log(err))
-    
-    }else{
-      getProducts
-    
-     .then(data=> setProduct(data))
-     .catch(err => console.log(err))
  
-    }
+      getProducts
+    //.then(respuesta => return console.log(respuesta))
+           .then(res => setProduct(res.find(prod => prod.id === idProducto)))
+          .catch(err => console.log(err))
+    
+ 
     }, [idProducto]); 
-  
+
+    console.log(product)
+    
+
   return (
     <>
     <ItemDetail product={product} />
-    <ItemCount initial={1} stock={5} />
+
     </>
   );
 };
