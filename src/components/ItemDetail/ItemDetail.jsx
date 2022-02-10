@@ -1,30 +1,36 @@
-import React, { useState } from 'react';
 
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../Context/prueba/CartContext';
 
-function ItemDetail() {
+function ItemDetail({product}) {
 
-  const [contador, setcontador] = useState(0);
+  const {addItem, cart} = useContext(CartContext)
+
   function onAdd(cant){
-    setcontador(cant)
+    addItem({item:product, quantity:cant})
    }
+
+  console.log(cart)
   return <div>
 
+<h3>{product.name}</h3>
 
-{contador === 0 ?
+{/*{agregarAlCarrito === 0 ?*/}
      <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-     :
-     <>
-     <Link to="/cart">
+     
+    
+    /*  <>
+    <Link to="/cart">
        <button>Terminar compra</button>
      </Link>
      <Link to="/">
        <button>Seguir comprando</button>
      </Link>
-     </>
+     </>*/
     
-    }
+    
 
   </div>;
 }

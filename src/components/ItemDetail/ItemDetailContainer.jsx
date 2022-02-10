@@ -1,13 +1,19 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Cart from '../cart/Cart';
 import getProducts from '../Helpers/getProducts';
 import ItemDetail from './ItemDetail';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+//import Card from 'react-bootstrap/Card';
+//import ListGroup from 'react-bootstrap/ListGroup';
 const ItemDetailContainer = () => {
+
   const [product, setProduct] = useState();
   
   const {idProducto} = useParams()
+  const [loading, setLoading] = useState(true);
+
    console.log(idProducto)
 
  //  const idProducto = 1 ;
@@ -17,6 +23,7 @@ const ItemDetailContainer = () => {
     //.then(respuesta => return console.log(respuesta))
            .then(res => setProduct(res.find((prod) => prod.id ===  Number(idProducto))))    
                   .catch(err => console.log(err))
+                  .finally(()=> setLoading(false))
            }, [idProducto]); 
 
     console.log(product)
@@ -24,7 +31,7 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-    <Card style={{ width: '18rem' }}>
+   {/* <Card style={{ width: '18rem' }}>
   <Card.Header>{product.name}</Card.Header>
   <ListGroup variant="flush">
     <ListGroup.Item>categoria: {product.categoria}</ListGroup.Item>
@@ -32,10 +39,18 @@ const ItemDetailContainer = () => {
     <ListGroup.Item>Precio: ${product.price}</ListGroup.Item>
   </ListGroup>
 </Card>
-<ItemDetail/>
+  <ItemDetail/>*/}
+ { loading ? 
+                <h2>Cargando ...</h2>
+            :             
+                <ItemDetail product={product} />
+            }
+
 
     </>
   );
 };
 
 export default ItemDetailContainer;
+
+

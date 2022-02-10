@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom';
 
 
+
 function NavBar() {
   return <div>
   <Navbar bg="secondary" variant="dark">
@@ -13,7 +14,7 @@ function NavBar() {
     <Link to="/categoria/remeras">remeras </Link>
     <Link to="/categoria/pantalones">pantalones </Link>
     <Link to="/categoria/camisetas">camisetas </Link>
-
+    
     </Container>
   </Navbar>
 </div>
