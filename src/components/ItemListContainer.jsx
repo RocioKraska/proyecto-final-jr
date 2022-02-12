@@ -18,12 +18,17 @@ function ItemListContainer() {
 
   function onAdd(cant){
    console.log(cant)
+
+
+
   }
   return <div>
    {/*item.map ((item)=> <ItemList item={item} key={item.id} />
 
    )
 */}
+        
+
    <ItemList/>
    <ItemCount initial={1} stock={5} onAdd={onAdd}/>
 

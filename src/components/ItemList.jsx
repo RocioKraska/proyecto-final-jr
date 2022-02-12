@@ -17,6 +17,18 @@ import getProducts from './Helpers/getProducts';
 const [producto, setProducto]= useState([])
 const [loading, setLoading]= useState(true)
 const {idCategoria} = useParams()
+const [bool, setBool] = useState(true)
+const click=(e)=>{
+  e.preventDefault() 
+  setBool(!bool)
+}
+
+const agregar=()=>{
+  setProducto([
+      ...producto,
+      { id: "8", name: "camisetas 7", categoria: "camisetas" , price: 344 }
+  ])
+}
 
 useEffect(() => {
 if (idCategoria){
@@ -35,6 +47,9 @@ if (idCategoria){
  
 
 }, [idCategoria]);
+console.log(bool);
+    console.log(producto);
+
 
 return <div>
     { loading ? <h3>cargando ... </h3> : producto.map (prod => <Card style={{ width: '18rem' }}>
@@ -51,7 +66,8 @@ return <div>
   </Card.Body>
 </Card>  )}
     
-
+<button onClick={click}>Cambiar estado </button>           
+            <button onClick={agregar}>Agregar Item </button>  
   </div>;
 }
 export default ItemList;
