@@ -8,9 +8,10 @@ export const CartContextProvider = ({children}) => {
 
 	const [cart, setCart] = useState([]);
 
-	const addItem = (item, quantity) => {
+	const addItem = ({item, quantity}) => {
 		if(isInCart(item.id)) {
 			const updateCart = [...cart];
+			
 
 			updateCart.forEach((element) => {
 				if(element.item.id === item.id) {
@@ -18,12 +19,13 @@ export const CartContextProvider = ({children}) => {
 				}
 			})
 			setCart(updateCart)
+			
 		} else {
 			setCart([...cart, {item, quantity}])
 		}
 	}
 
-	console.log(cart)
+	
 
 	const isInCart = (id) => {
 		return cart.find(element => element.item.id === id)

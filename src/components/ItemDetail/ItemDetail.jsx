@@ -4,8 +4,13 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/prueba/CartContext';
 
-function ItemDetail({product}) {
+ 
 
+
+function ItemDetail({product}) {
+  
+
+ 
   const {addItem, cart} = useContext(CartContext)
 
   function onAdd(cant){
@@ -13,22 +18,23 @@ function ItemDetail({product}) {
    }
 
   console.log(cart)
-  return <div>
 
-<h3>{product.name}</h3>
+  return <div>
+  
+    <h3>{product.name}</h3>
 
 {/*{agregarAlCarrito === 0 ?*/}
      <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-     
+  
     
-    /*  <>
+      <>
     <Link to="/cart">
-       <button>Terminar compra</button>
+       <button  className='btn btn-outline-primary' >Terminar compra</button>
      </Link>
      <Link to="/">
-       <button>Seguir comprando</button>
+       <button   className='btn btn-outline-primary'>Seguir comprando</button>
      </Link>
-     </>*/
+     </>
     
     
 

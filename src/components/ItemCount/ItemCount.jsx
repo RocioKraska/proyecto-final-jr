@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+//import { CartContext } from '../../Context/prueba/CartContext';
 
 function ItemCount({initial, stock, onAdd}) {
   const [contador, setcontador] = useState(initial);
@@ -19,6 +20,7 @@ const agregar =()=>{
     onAdd(contador)
 }
   return <>
+ 
   <button className='btn btn-outline-primary' onClick={sumar}> + </button>
   {contador}
   <button className='btn btn-outline-primary' onClick={restar} > - </button> <br/>

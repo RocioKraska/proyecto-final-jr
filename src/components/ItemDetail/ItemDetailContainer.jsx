@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Cart from '../cart/Cart';
 import getProducts from '../Helpers/getProducts';
 import ItemDetail from './ItemDetail';
 //import Card from 'react-bootstrap/Card';
@@ -13,7 +12,7 @@ const ItemDetailContainer = () => {
   
   const {idProducto} = useParams()
   const [loading, setLoading] = useState(true);
-
+  
    console.log(idProducto)
 
  //  const idProducto = 1 ;
@@ -31,6 +30,8 @@ const ItemDetailContainer = () => {
 
   return (
     <>
+   
+   
    {/* <Card style={{ width: '18rem' }}>
   <Card.Header>{product.name}</Card.Header>
   <ListGroup variant="flush">
@@ -44,8 +45,9 @@ const ItemDetailContainer = () => {
                 <h2>Cargando ...</h2>
             :             
                 <ItemDetail product={product} />
+              
             }
-
+  
 
     </>
   );
