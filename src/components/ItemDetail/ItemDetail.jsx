@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/prueba/CartContext';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
  
 
@@ -23,7 +25,16 @@ function ItemDetail({product}) {
 
   return <div>
   
-    <h3>{product.name}</h3>
+ <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src={product.foto} /> 
+  <Card.Body>
+    <Card.Title>{ ` ${product.name}` }</Card.Title>
+    <Card.Text>
+    {`${product.categoria} - $ ${product.price}` }
+    </Card.Text>
+   
+  </Card.Body>
+</Card>  
 
 {/*{agregarAlCarrito === 0 ?*/}
 {

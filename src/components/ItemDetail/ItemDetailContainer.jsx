@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import getProducts from '../Helpers/getProducts';
 import ItemDetail from './ItemDetail';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 //import Card from 'react-bootstrap/Card';
 //import ListGroup from 'react-bootstrap/ListGroup';
 const ItemDetailContainer = () => {
@@ -15,8 +16,26 @@ const ItemDetailContainer = () => {
   
    console.log(idProducto)
 
+
+
+   useEffect(() => {
+    //llamada a una api. Tarea asincónica  
+    const db = getFirestore()      
+    const itemRef = doc(db, 'productos', idProducto) 
+    getDoc(itemRef)
+    .then(resp => setProduct( { id: resp.id, ...resp.data() } ))
+    .catch(err => console.log(err))
+        //.then(respuesta => console.log(respuesta))
+    .finally(()=> setLoading(false))               
+   
+    //console.log('api')     
+}, [])
+
+console.log(product)
+
+
  //  const idProducto = 1 ;
-  useEffect(() => {
+ /* useEffect(() => {
  
           getProducts()
     //.then(respuesta => return console.log(respuesta))
@@ -25,7 +44,7 @@ const ItemDetailContainer = () => {
                   .finally(()=> setLoading(false))
            }, [idProducto]); 
 
-    console.log(product)
+    console.log(product)*/
     
 
   return (
