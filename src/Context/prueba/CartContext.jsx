@@ -11,7 +11,7 @@ export const CartContextProvider = ({children}) => {
 	const addItem = ({item, quantity}) => {
 		if(isInCart(item.id)) {
 			const updateCart = [...cart];
-			
+		
 
 			updateCart.forEach((element) => {
 				if(element.item.id === item.id) {
@@ -23,7 +23,9 @@ export const CartContextProvider = ({children}) => {
 		} else {
 			setCart([...cart, {item, quantity}])
 		}
+		console.log(item)
 	}
+
 
 	
 
