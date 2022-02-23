@@ -15,8 +15,7 @@ const Cart = () => {
 
 console.log(cart)
     const realizarCompra = async (e) => {
-      e.preventDefault()  
-       // Nuevo objeto de orders    
+      e.preventDefault()     
       let orden = {}          
 
       orden.buyer =  {name:'rocio',email: 'rk@gmail.com', phone: '1165350821'}

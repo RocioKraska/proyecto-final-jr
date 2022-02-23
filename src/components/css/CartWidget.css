@@ -1,0 +1,7 @@
+.cart{
+    size: 50%;
+    color: #EEEDDE;
+}
+.cart:hover{
+    color: #E0DDAA;
+}

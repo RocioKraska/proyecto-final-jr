@@ -1,0 +1,44 @@
+
+.nav{
+    background-color: #141E27;
+    display: inline;
+    height: 50px;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.options{
+    font-family: 'Fjalla One', sans-serif;
+    
+}
+.opt{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #EEEDDE;
+}
+.cart{
+    color: #EEEDDE;
+    margin-left:  15px;
+    margin-right: 15px;
+}
+
+.opt:hover{
+    color: #E0DDAA;
+}
+#title{
+    font-family: 'Abril Fatface', cursive;
+}
+
+#img{
+    object-fit: cover;
+	height: 150px;
+    width: 100%;
+    background-image: '/public/nav.jpg';
+    
+}
+#num{
+        color:#EEEDDE ;
+        text-decoration: none;
+    
+}

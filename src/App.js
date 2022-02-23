@@ -6,7 +6,6 @@ import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import Cart from './components/cart/Cart';
-import ItemSeleccionado from './components/ItemSeleccionado';
 import { CartContextProvider } from './Context/prueba/CartContext';
 
 
@@ -28,7 +27,6 @@ function App() {
       <Route exact path='/cart' element={<Cart/>}/>
 
      </Routes>
-     <ItemSeleccionado/>
      </div>
      </CartContextProvider>
           </BrowserRouter>

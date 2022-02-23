@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-//import { CartContext } from '../../Context/prueba/CartContext';
+
 
 function ItemCount({initial, stock, onAdd}) {
   const [contador, setcontador] = useState(initial);
@@ -25,6 +25,7 @@ const agregar =()=>{
   {contador}
   <button className='btn btn-outline-primary' onClick={restar} > - </button> <br/>
   <button className='btn btn-outline-primary' onClick={agregar} >Agregar</button>
+  <button className='btn btn-outline-primary' onClick={agregar} >Agregar Wish List</button>
   </>;
 }
 

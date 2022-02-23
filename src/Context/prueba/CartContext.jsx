@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import {createContext, useState} from 'react';
-
+import "./cartContext.css"
 export const CartContext = createContext();
 export function useCartContext() {return useContext(CartContext)} 
+
 export const CartContextProvider = ({children}) => {
 	
 
@@ -26,17 +27,10 @@ export const CartContextProvider = ({children}) => {
 		console.log(item)
 	}
 
-
-	
-
 	const isInCart = (id) => {
 		return cart.find(element => element.item.id === id)
 	}
 
-	/*const removeItem = (itemId) => {
-		const cartFilter = cart.filter(element => element.item.id !== itemId)
-		return setCart(cartFilter)
-	}*/
     function vaciarCarrito() {
         setCart([])
         
@@ -54,9 +48,11 @@ export const CartContextProvider = ({children}) => {
     }
 
 
+	
 	return(
 		<CartContext.Provider value={{ addItem, cart, setCart, vaciarCarrito, sumaTotal, cantidad,borrarItem}}>
 			{children}
 		</CartContext.Provider>
 	)
+
 }
