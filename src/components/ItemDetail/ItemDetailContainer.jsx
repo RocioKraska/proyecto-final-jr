@@ -4,16 +4,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import Wish from '../wishList/Wish';
+
+
+
+
+ 
 
 const ItemDetailContainer = () => {
-
+  
+ 
   const [product, setProduct] = useState();
+
   const {idProducto} = useParams()
   const [loading, setLoading] = useState(true);
-  
+ 
    console.log(idProducto)
-
-
 
    useEffect(() => {
     const db = getFirestore()      
@@ -23,20 +29,23 @@ const ItemDetailContainer = () => {
     .catch(err => console.log(err))
     .finally(()=> setLoading(false))                  
 }, [])
-
+  
 console.log(product)
-
+ 
   return (
     <>
  { loading ? 
                 <h2>Cargando ...</h2>
-            :             
+            :     
+            <>        
                 <ItemDetail product={product} />
-              
+                <Wish  product={product}/>
+            </>
             }
-  
+ 
 
     </>
+    
   );
 };
 

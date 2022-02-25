@@ -19,13 +19,14 @@ function ItemCount({initial, stock, onAdd}) {
 const agregar =()=>{
     onAdd(contador)
 }
+
   return <>
  
   <button className='btn btn-outline-primary' onClick={sumar}> + </button>
   {contador}
   <button className='btn btn-outline-primary' onClick={restar} > - </button> <br/>
-  <button className='btn btn-outline-primary' onClick={agregar} >Agregar</button>
-  <button className='btn btn-outline-primary' onClick={agregar} >Agregar Wish List</button>
+  <button className='btn btn-outline-primary' onClick={agregar} >Agregar al Carrito</button>
+  
   </>;
 }
 

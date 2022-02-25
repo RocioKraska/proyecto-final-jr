@@ -7,6 +7,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import Cart from './components/cart/Cart';
 import { CartContextProvider } from './Context/prueba/CartContext';
+import { WishContextProvider } from './Context/prueba/WishContext';
+import Wish from './components/wishList/Wish';
+
+
+
 
 
 
@@ -16,8 +21,8 @@ function App() {
   
   return (
     <BrowserRouter>
-  
-<CartContextProvider>
+  <WishContextProvider>
+  <CartContextProvider>
     <div className="App">
      <NavBar/>
      <Routes>
@@ -25,10 +30,11 @@ function App() {
       <Route exact path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
       <Route exact path= "/detalle/:idProducto" element={<ItemDetailContainer/>}/>
       <Route exact path='/cart' element={<Cart/>}/>
-
+      <Route exact path='/WishList' element={<Wish   />}/>
      </Routes>
      </div>
-     </CartContextProvider>
+  </CartContextProvider>
+  </WishContextProvider>
           </BrowserRouter>
 
     

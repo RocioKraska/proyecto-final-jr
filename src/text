@@ -2,3 +2,150 @@ font-family: 'Noto Serif Display', serif;
 font-family: 'Fjalla One', sans-serif;
 font-family: 'Abril Fatface', cursive;
 font-family: 'Balsamiq Sans', cursive;
+
+
+          {/*  <div>
+      
+            { loading ? 
+
+                <h2>Cargando ...</h2>
+                :     
+                     <>     
+                     
+
+            {wishList.length !== 0 ?  <>
+
+    { wishList.map(i => 
+      {    
+               contador === 0 ?
+        <>   
+ <img src={i.item.foto}/>
+
+ <li>  NOMBRE:   {i.item.name}  PRECIO: {i.item.price}</li>
+
+ <ItemCount initial={1} stock={5} onAdd={onAdd} />   
+
+ </>
+  :
+<>
+<h1>eliminado</h1>
+
+
+</>
+
+ }
+
+
+
+   )
+
+
+
+}
+  
+<button onClick={empty}  className='btn btn-outline-primary'  >Vaciar Carrito</button>
+
+
+
+</>
+: 
+<>
+<h1>no hay producto</h1>
+
+
+</>
+
+}
+                 </>
+
+
+}         
+   
+     
+                
+                   
+  
+        </div>
+)*/}
+
+
+
+
+
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import {  useCartContext } from '../../Context/prueba/CartContext'
+import { useWishContext } from '../../Context/prueba/WishContext'
+import ItemCount from '../ItemCount/ItemCount'
+
+
+const Wish = () => {
+
+  
+    const {  
+        wishList,
+        empty,
+        delate } = useWishContext()
+        const {addItem} = useCartContext()
+        const [product, setProduct] = useState();
+
+       
+        const f = wishList.find(e => e.item)
+       
+  
+        useEffect(() => {
+           const db = getFirestore()    
+           const itemRef = doc(db, 'productos', f.item.id) 
+           getDoc(itemRef)
+          .then(resp => setProduct( { id: resp.id, ...resp.data() } ))
+          .catch(err => console.log(err))
+          .finally(()=> setLoading(false))                  
+        }, [])
+
+         function onAdd(cant){
+            addItem({item:product, quantity:cant})
+          
+         }
+
+           console.log(wishList)
+
+ 
+ 
+  return (
+
+<div>
+{/*{wishList.length !== 0 ?  */}
+
+{console.log(wishList.length)}
+{ wishList.map(i =>
+
+<>
+
+
+
+      
+<img src={i.item.foto}/>
+
+<li>  NOMBRE:   {i.item.name}  PRECIO: {i.item.price}</li>
+
+<ItemCount initial={1} stock={5} onAdd={onAdd} />   
+
+
+{console.log(wishList.length)}
+
+
+<button onClick={() => delate(i.item.id)}>x</button>
+
+  </>
+   )
+
+   }
+<button onClick={empty}  className='btn btn-outline-primary'  >Vaciar Carrito</button>
+ </div>
+ 
+
+ )
+ }
+
+export default Wish;

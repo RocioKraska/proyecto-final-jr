@@ -4,23 +4,34 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/prueba/CartContext';
 import { useState } from 'react';
+import { wishContext } from '../../Context/prueba/WishContext';
+
 import "../css/ItemDetail.css"
- 
 
 
 function ItemDetail({product}) {
   
-
+  
   const [contador, setContador] = useState(0);
   const {addItem, cart} = useContext(CartContext)
+  const { addToWishList} = useContext(wishContext)
 
-  function onAdd(cant){
+
+ 
+
+  function onAddWish() {
+    addToWishList( { item: product})
+    
+  }
+
+ function onAdd(cant){
     addItem({item:product, quantity:cant})
     setContador(cant)
    }
 
   console.log(cart)
 
+ 
   return <div>
   
  <div>
@@ -34,11 +45,13 @@ function ItemDetail({product}) {
     <div  id='price'>
         {`$ ${product.price}` }
     </div>
-
+    <button onClick={onAddWish}  className="buttons" > Agregar a la wish list</button>
     {    
    contador === 0 ?
-        <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-  
+   <>
+        <ItemCount initial={1} stock={5} onAdd={onAdd} />
+       
+   </>
    :
      <>
      <Link to="/cart">
@@ -47,6 +60,7 @@ function ItemDetail({product}) {
      <Link to="/">
        <button>Seguir comprando</button>
      </Link>
+
      </>
 }
 

@@ -2,7 +2,6 @@ import "./css/ItemList.css"
 import React, {  useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
-
 import { BiChevronRight } from "react-icons/bi";
 
 

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import {createContext, useState} from 'react';
 import "./cartContext.css"
+
 export const CartContext = createContext();
 export function useCartContext() {return useContext(CartContext)} 
 

@@ -14,6 +14,7 @@ function NavBar() {
     <Link to="/categoria/misterio" className='opt'>misterio </Link>
     <Link to="/categoria/fantasia" className='opt'>fantasia </Link>
     <Link to="/logIn" className='opt'>logIn </Link>
+    <Link to="/wishList" className='opt'>wishList</Link>
    </div>  
     <Link id='num' to="/cart">
     { cantidad() !== 0 && cantidad()}
