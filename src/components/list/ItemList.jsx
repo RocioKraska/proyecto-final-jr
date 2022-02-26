@@ -1,4 +1,4 @@
-import "./css/ItemList.css"
+import "../css/ItemList.css"
 import React, {  useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
@@ -50,26 +50,32 @@ console.log(bool);
 
 return <div id="container" >
   <div id="containerI">
-    { loading ? <h3 id='loading'> <BiChevronRight/>  loading</h3> : producto.map (prod => 
+    { loading ? <h3 className='loading'> <BiChevronRight/>  loading</h3> : producto.map (prod => 
     <div >
      <div id="miniContainer">
+
       <img id="imgP" variant="top" src={prod.foto} /> 
-    <div>
+      
+    <div id="name">
       { ` ${prod.name}` }
     </div>
-    <div>
-      {`${prod.categoria} - $ ${prod.price}` }
+    <div  id="cat">
+      {`${prod.categoria} `}
+    </div>
+    <div  id="pri">
+      {` $ ${prod.price}` }
     </div>
       <Link to={ `/detalle/${prod.id}`}>
-        <button  className="buttons" id="button" >Averigua mas</button>
+
+        <button  className="buttons" id="button" >averigua mas</button>
       </Link>
       </div>
     </div>
   )}
   </div>
 <div id="buttons">
-<button className="buttons" id="b1" onClick={click}>Cambiar estado </button>           
-<button className="buttons" id="b2" onClick={agregar}>Agregar Item </button>  
+<button className="buttons" id="b1" onClick={click}>cambiar estado </button>           
+<button className="buttons" id="b2" onClick={agregar}>agregar Item </button>  
 </div>
 </div>
   

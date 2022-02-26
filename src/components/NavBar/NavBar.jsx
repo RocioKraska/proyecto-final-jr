@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NavBar.css'
 import { useCartContext } from '../../Context/prueba/CartContext';
-import CartWidget from '../CartWidget';
+import CartWidget from '../cart/CartWidget';
 
 function NavBar() {
   const { cantidad } = useCartContext()
@@ -14,7 +14,7 @@ function NavBar() {
     <Link to="/categoria/misterio" className='opt'>misterio </Link>
     <Link to="/categoria/fantasia" className='opt'>fantasia </Link>
     <Link to="/logIn" className='opt'>logIn </Link>
-    <Link to="/wishList" className='opt'>wishList</Link>
+    
    </div>  
     <Link id='num' to="/cart">
     { cantidad() !== 0 && cantidad()}

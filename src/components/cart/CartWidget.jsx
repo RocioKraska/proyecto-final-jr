@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/CartWidget.css'
+import '../css/CartWidget.css'
 
 import { BsFillBasketFill } from "react-icons/bs";
 

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import {createContext, useState} from 'react';
-import "./cartContext.css"
 
+import "./cartContext.css"
 export const CartContext = createContext();
 export function useCartContext() {return useContext(CartContext)} 
 
@@ -27,7 +27,7 @@ export const CartContextProvider = ({children}) => {
 		}
 		console.log(item)
 	}
-
+	console.log(cart)
 	const isInCart = (id) => {
 		return cart.find(element => element.item.id === id)
 	}

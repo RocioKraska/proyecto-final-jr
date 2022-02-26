@@ -1,9 +1,7 @@
-
-
-#loading{
+.loading{
     padding-top: 50px;
     font-family: 'Fjalla One', sans-serif;
-    color: #141E27;
+    color: #E0DDAA;
     font-size: 20px;
     padding-bottom: 189px;
 }
@@ -16,7 +14,6 @@
     flex-direction: row;
     margin-top: 70px;
     justify-content: space-evenly;
-    
 }
 #containerI{
     margin-top: 50px;
@@ -27,12 +24,11 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     background-color: #203239;
-    
 }
 .buttons{
   
     border-radius: 6px;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Fjalla One', sans-serif;
     font-weight: bolder;
     width: 200px;
 }
@@ -54,4 +50,18 @@
     background-color: #203239 ;
     color: #E0DDAA ;
     margin-bottom: 40px;
+}
+#name{
+    color: #EEEDDE;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 20px;
+}
+#cat{
+    color: #E0DDAA ;
+    font-family: 'Fjalla One', sans-serif;
+}
+#pri{
+    color: #EEEDDE;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 25px;
 }

@@ -4,11 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import Wish from '../wishList/Wish';
-
-
-
-
+import { BiChevronRight } from "react-icons/bi";
+import "../css/ItemDetalList.css"
  
 
 const ItemDetailContainer = () => {
@@ -35,11 +32,11 @@ console.log(product)
   return (
     <>
  { loading ? 
-                <h2>Cargando ...</h2>
+                <h2 className='loadingg'> <BiChevronRight/> loading</h2>
             :     
             <>        
                 <ItemDetail product={product} />
-                <Wish  product={product}/>
+                
             </>
             }
  

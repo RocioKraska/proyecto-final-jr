@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/prueba/CartContext';
 import { useState } from 'react';
-import { wishContext } from '../../Context/prueba/WishContext';
+
 
 import "../css/ItemDetail.css"
 
@@ -13,23 +13,19 @@ function ItemDetail({product}) {
   
   
   const [contador, setContador] = useState(0);
-  const {addItem, cart} = useContext(CartContext)
-  const { addToWishList} = useContext(wishContext)
-
+  const {addItem} = useContext(CartContext)
+ 
 
  
 
-  function onAddWish() {
-    addToWishList( { item: product})
-    
-  }
+  
 
  function onAdd(cant){
     addItem({item:product, quantity:cant})
     setContador(cant)
    }
 
-  console.log(cart)
+ 
 
  
   return <div>
@@ -45,7 +41,7 @@ function ItemDetail({product}) {
     <div  id='price'>
         {`$ ${product.price}` }
     </div>
-    <button onClick={onAddWish}  className="buttons" > Agregar a la wish list</button>
+   
     {    
    contador === 0 ?
    <>
@@ -53,15 +49,15 @@ function ItemDetail({product}) {
        
    </>
    :
-     <>
+     <div id='buut'>
      <Link to="/cart">
-       <button>Terminar compra</button>
+       <button className='bb'>Terminar compra</button>
      </Link>
      <Link to="/">
-       <button>Seguir comprando</button>
+       <button className='bb'>Seguir comprando</button>
      </Link>
 
-     </>
+     </div>
 }
 
     </div>
