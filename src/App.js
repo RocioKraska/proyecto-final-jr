@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import Cart from './components/cart/Cart';
 import { CartContextProvider } from './Context/prueba/CartContext';
-import { WishContextProvider } from './Context/prueba/WishContext';
+
 
 
 
@@ -21,7 +21,7 @@ function App() {
   
   return (
     <BrowserRouter>
-  <WishContextProvider>
+  
   <CartContextProvider>
     <div className="App">
      <NavBar/>
@@ -34,7 +34,7 @@ function App() {
      </Routes>
      </div>
   </CartContextProvider>
-  </WishContextProvider>
+
           </BrowserRouter>
 
     

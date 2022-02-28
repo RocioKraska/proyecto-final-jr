@@ -11,18 +11,9 @@ import { BiChevronRight } from "react-icons/bi";
 const [producto, setProductos]= useState([])
 const [loading, setLoading]= useState(true)
 const {idCategoria} = useParams()
-const [bool, setBool] = useState(true)
-const click=(e)=>{
-  e.preventDefault() 
-  setBool(!bool)
-}
 
-const agregar=()=>{
-  setProductos([
-      ...producto,
-      { id: "8", name: "libro", categoria: "libro" , price: 344 }
-  ])
-}
+
+
 
 
  
@@ -44,7 +35,7 @@ useEffect(() => {
              
 }, [idCategoria])
 
-console.log(bool);
+
     console.log(producto);
 
 
@@ -73,10 +64,7 @@ return <div id="container" >
     </div>
   )}
   </div>
-<div id="buttons">
-<button className="buttons" id="b1" onClick={click}>cambiar estado </button>           
-<button className="buttons" id="b2" onClick={agregar}>agregar Item </button>  
-</div>
+
 </div>
   
 }

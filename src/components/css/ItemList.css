@@ -3,7 +3,7 @@
     font-family: 'Fjalla One', sans-serif;
     color: #E0DDAA;
     font-size: 20px;
-    padding-bottom: 189px;
+    padding-bottom: 200px;
 }
 #imgP{
     height: 350px;
@@ -17,13 +17,14 @@
 }
 #containerI{
     margin-top: 50px;
-    margin-bottom: 50px;
+   
     padding-top: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
     background-color: #203239;
+    padding-bottom: 100px;
 }
 .buttons{
   

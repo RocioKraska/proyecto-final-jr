@@ -13,7 +13,6 @@ function NavBar() {
     <Link to="/categoria/romance" className='opt'>romance </Link>
     <Link to="/categoria/misterio" className='opt'>misterio </Link>
     <Link to="/categoria/fantasia" className='opt'>fantasia </Link>
-    <Link to="/logIn" className='opt'>logIn </Link>
     
    </div>  
     <Link id='num' to="/cart">
