@@ -45,7 +45,7 @@ function ItemDetail({product}) {
     {    
    contador === 0 ?
    <>
-        <ItemCount initial={1} stock={5} onAdd={onAdd} />
+        <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
        
    </>
    :
